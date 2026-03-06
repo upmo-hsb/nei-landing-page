@@ -1,3 +1,4 @@
+/* YC warm off-white background */
 .page {
   background: var(--color-light);
   min-height: calc(100vh - 64px);
@@ -9,10 +10,13 @@
   margin: 0 auto;
 }
 
+/* Source Serif 4 editorial title */
 .title {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--color-dark);
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: var(--color-ink);
   margin-bottom: 2.5rem;
 }
 
@@ -26,19 +30,23 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
+/* YC card style */
 .item {
   background: var(--color-white);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px 0px;
 }
 
+/* superai.com purple label */
 .item h3 {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--color-primary);
@@ -46,36 +54,42 @@
 }
 
 .item p {
+  font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--color-dark);
+  font-weight: 300;
+  color: var(--color-ink);
   line-height: 1.6;
 }
 
 .socials {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
+/* YC link style: underlined */
 .socials a {
-  background: var(--color-white);
-  border: 1.5px solid #E2E8F0;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-dark);
-  transition: border-color 0.2s, color 0.2s;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(22, 20, 15, 0.2);
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .socials a:hover {
-  border-color: var(--color-primary);
   color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
 }
 
+/* YC 12px radius on map */
 .map {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px 0px;
 }
 
 .map iframe {

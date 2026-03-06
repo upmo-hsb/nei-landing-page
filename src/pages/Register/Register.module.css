@@ -1,3 +1,4 @@
+/* YC warm light background */
 .page {
   background: var(--color-light);
   min-height: calc(100vh - 64px);
@@ -9,15 +10,20 @@
   margin: 0 auto;
 }
 
+/* Source Serif 4 page title */
 .title {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--color-dark);
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: var(--color-ink);
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: var(--color-gray);
+  font-family: var(--font-sans);
+  color: var(--color-warm-gray);
+  font-weight: 300;
   margin-bottom: 2rem;
   font-size: 1rem;
 }
@@ -35,45 +41,52 @@
 }
 
 .field span {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-dark);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink);
 }
 
+/* YC input style: clean border, white bg */
 .field input,
 .field textarea,
 .field select {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1.5px solid #E2E8F0;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
   font-size: 1rem;
-  font-family: var(--font-family);
-  color: var(--color-dark);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--color-ink);
   background: var(--color-white);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }
 
+/* superai.com purple focus glow */
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(120, 70, 221, 0.1);
 }
 
 .members {
-  border: 1.5px solid #E2E8F0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  background: var(--color-white);
 }
 
 .members legend {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-dark);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink);
   padding: 0 0.5rem;
 }
 
@@ -86,28 +99,31 @@
 .memberRow input {
   flex: 1;
   padding: 0.65rem 1rem;
-  border: 1.5px solid #E2E8F0;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
   font-size: 1rem;
-  font-family: var(--font-family);
-  color: var(--color-dark);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--color-ink);
   background: var(--color-white);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .memberRow input:focus {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(120, 70, 221, 0.1);
 }
 
 .removeBtn {
   background: none;
-  border: 1.5px solid #E2E8F0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   padding: 0.5rem 0.75rem;
+  font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-family: var(--font-family);
-  color: var(--color-gray);
+  font-weight: 400;
+  color: var(--color-warm-gray);
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
 }
@@ -119,44 +135,47 @@
 
 .addBtn {
   background: none;
-  border: 1.5px dashed var(--color-primary);
+  border: 1px solid rgba(120, 70, 221, 0.35);
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--color-primary);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
   align-self: flex-start;
 }
 
 .addBtn:hover {
   background: rgba(120, 70, 221, 0.05);
+  box-shadow: rgba(98, 75, 202, 0.3) 0px 0px 16px;
 }
 
 .error {
+  font-family: var(--font-sans);
   color: #EF4444;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
+/* superai.com lime CTA + purple glow hover */
 .submit {
   background: var(--color-pop);
   color: var(--color-dark);
   border: none;
   border-radius: 8px;
   padding: 1rem;
+  font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 800;
-  font-family: var(--font-family);
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
 }
 
 .submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(219, 254, 82, 0.3);
+  box-shadow: rgba(98, 75, 202, 0.7) 0px 0px 32px;
 }
 
 .submit:disabled {
@@ -164,6 +183,7 @@
   cursor: not-allowed;
 }
 
+/* YC card shadow on success */
 .success {
   max-width: 480px;
   margin: 4rem auto;
@@ -171,20 +191,24 @@
   padding: 3rem 2rem;
   background: var(--color-white);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px 0px;
 }
 
 .success h1 {
+  font-family: var(--font-serif);
   font-size: 1.75rem;
-  font-weight: 900;
-  color: var(--color-dark);
+  font-weight: 500;
+  color: var(--color-ink);
   margin-bottom: 0.75rem;
 }
 
 .success p {
-  color: var(--color-gray);
+  font-family: var(--font-sans);
+  color: var(--color-warm-gray);
   font-size: 1rem;
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 @media (max-width: 480px) {

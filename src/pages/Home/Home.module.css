@@ -1,69 +1,95 @@
-/* Hero */
+/* ── Hero ──────────────────────────────────────────── */
+/* superai.com dark background + purple radial glow */
 .hero {
-  background: linear-gradient(135deg, var(--color-dark) 0%, #1e3a5f 50%, var(--color-primary) 100%);
+  background: var(--color-dark);
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(120, 70, 221, 0.2) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 820px;
+  position: relative;
 }
 
+/* YC uppercase caption style */
 .tag {
+  font-family: var(--font-sans);
   color: var(--color-pop);
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 1.68px;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
+/* Source Serif 4 large headline — YC editorial style */
 .headline {
+  font-family: var(--font-serif);
   color: var(--color-white);
-  font-size: 3.5rem;
-  font-weight: 900;
+  font-size: 3.75rem;
+  font-weight: 500;
   line-height: 1.1;
+  letter-spacing: -1px;
   margin-bottom: 1.5rem;
 }
 
+/* superai.com lime accent on key word */
 .headlineAccent {
   color: var(--color-pop);
+  font-style: italic;
 }
 
+/* YC light weight body copy */
 .sub {
-  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.2rem;
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
-  max-width: 600px;
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* superai.com lime CTA + purple glow hover */
 .ctaButton {
   display: inline-block;
   background: var(--color-pop);
   color: var(--color-dark);
   padding: 1rem 2.5rem;
   border-radius: 8px;
-  font-weight: 800;
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(219, 254, 82, 0.3);
+  box-shadow: rgba(98, 75, 202, 0.7) 0px 0px 32px;
 }
 
-/* Stats */
+/* ── Stats ─────────────────────────────────────────── */
+/* YC warm white background */
 .stats {
   background: var(--color-white);
   padding: 4rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .statsGrid {
@@ -81,32 +107,41 @@
   gap: 0.5rem;
 }
 
+/* Source Serif 4 large numbers — editorial */
 .statNumber {
+  font-family: var(--font-serif);
   font-size: 3rem;
-  font-weight: 900;
+  font-weight: 400;
   color: var(--color-primary);
+  letter-spacing: -1px;
 }
 
+/* DM Sans small caps label */
 .statLabel {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-gray);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-warm-gray);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-/* Key Dates */
+/* ── Key Dates ─────────────────────────────────────── */
+/* YC warm off-white light background */
 .highlights {
   background: var(--color-light);
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
 
+/* Source Serif 4 section title */
 .sectionTitle {
+  font-family: var(--font-serif);
   text-align: center;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
   margin-bottom: 2.5rem;
-  color: var(--color-dark);
+  color: var(--color-ink);
 }
 
 .cards {
@@ -117,47 +152,60 @@
   gap: 1.5rem;
 }
 
+/* YC card style: white + subtle shadow + 8px radius */
 .card {
   background: var(--color-white);
-  border-left: 4px solid var(--color-primary);
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px 0px;
+  border-left: 3px solid var(--color-primary);
 }
 
+/* superai.com lime date */
 .cardDate {
   display: block;
-  color: var(--color-pop);
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
 }
 
+/* Source Serif 4 card title */
 .card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
   margin-bottom: 0.5rem;
-  color: var(--color-dark);
+  color: var(--color-ink);
 }
 
 .card p {
-  color: var(--color-gray);
+  font-family: var(--font-sans);
+  color: var(--color-warm-gray);
   font-size: 0.9rem;
-  line-height: 1.5;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
-/* Sponsors */
+/* ── Sponsors ───────────────────────────────────────── */
 .sponsors {
   background: var(--color-white);
   padding: 3rem 2rem;
   text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .sponsorsLabel {
-  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--color-gray);
+  letter-spacing: 1.68px;
+  color: var(--color-warm-gray);
   margin-bottom: 1.5rem;
 }
 
@@ -170,25 +218,18 @@
 
 .sponsorLogo {
   padding: 0.75rem 1.5rem;
-  border: 1px dashed var(--color-gray);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  font-size: 0.9rem;
-  color: var(--color-gray);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-warm-gray);
 }
 
-/* Responsive */
+/* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 768px) {
   .headline {
-    font-size: 2.2rem;
-  }
-
-  .statsGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .statNumber {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .cards {
@@ -204,7 +245,7 @@
 
 @media (max-width: 480px) {
   .headline {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .sub {
