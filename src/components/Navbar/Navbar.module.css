@@ -4,7 +4,6 @@
   z-index: 100;
   background: var(--color-dark);
   padding: 0 2rem;
-  border-bottom: 1px solid rgba(219, 254, 82, 0.12);
 }
 
 .container {
@@ -17,10 +16,9 @@
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--color-white);
-  letter-spacing: -0.02em;
 }
 
 .logoAccent {
@@ -35,9 +33,8 @@
 
 .links a {
   color: var(--color-white);
-  font-weight: 400;
-  font-size: 1rem;
-  opacity: 0.7;
+  font-weight: 500;
+  opacity: 0.8;
   transition: opacity 0.2s;
 }
 
@@ -49,13 +46,13 @@
 .cta {
   background: var(--color-pop);
   color: var(--color-dark);
-  padding: 0.55rem 1.5rem;
-  border-radius: 160px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: box-shadow 0.2s;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 0.2s;
 }
 
 .cta:hover {
-  box-shadow: rgba(98, 75, 202, 0.8) 0px 0px 40px;
+  transform: translateY(-1px);
 }

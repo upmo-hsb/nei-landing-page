@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   --color-primary: #7846dd;
@@ -8,7 +8,7 @@
   --color-pop: #dbfe52;
   --color-white: #FFFFFF;
   --color-gray: #6b6e7e;
-  --font-family: 'Manrope', Arial, sans-serif;
+  --font-family: 'Inter', sans-serif;
 }
 
 * {
