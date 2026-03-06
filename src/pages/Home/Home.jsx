@@ -64,8 +64,12 @@ function Home() {
       <section className={styles.sponsors}>
         <p className={styles.sponsorsLabel}>Sponsored By</p>
         <div className={styles.sponsorsLogos}>
-          <div className={styles.sponsorLogo}>Hanoi School of Business &amp; Management</div>
-          <div className={styles.sponsorLogo}>Hanoi Department of Education</div>
+          <div className={styles.sponsorLogo}>
+            <img src="/logo-hsbm.png" alt="Hanoi School of Business & Management" />
+          </div>
+          <div className={styles.sponsorLogo}>
+            <img src="/logo-acquin.png" alt="Hanoi Department of Education" />
+          </div>
         </div>
       </section>
     </main>

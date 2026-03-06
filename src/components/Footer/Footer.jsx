@@ -7,8 +7,12 @@ function Footer() {
         <div className={styles.sponsors}>
           <p className={styles.label}>Sponsored by</p>
           <div className={styles.logos}>
-            <div className={styles.logoPlaceholder}>Hanoi School of Business &amp; Management</div>
-            <div className={styles.logoPlaceholder}>Hanoi Department of Education</div>
+            <div className={styles.logoPlaceholder}>
+              <img src="/logo-hsbm.png" alt="Hanoi School of Business & Management" />
+            </div>
+            <div className={styles.logoPlaceholder}>
+              <img src="/logo-acquin.png" alt="Hanoi Department of Education" />
+            </div>
           </div>
         </div>
         <div className={styles.socials}>
