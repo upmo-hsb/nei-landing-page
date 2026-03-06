@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --color-primary: #2563EB;
-  --color-accent: #3B82F6;
-  --color-dark: #0F172A;
+  --color-primary: #7846dd;
+  --color-accent: #9f70fc;
+  --color-dark: #0b131c;
   --color-light: #F8FAFC;
-  --color-pop: #F59E0B;
+  --color-pop: #dbfe52;
   --color-white: #FFFFFF;
-  --color-gray: #64748B;
-  --font-family: 'Inter', sans-serif;
+  --color-gray: #6b6e7e;
+  --font-family: 'Manrope', Arial, sans-serif;
 }
 
 * {
