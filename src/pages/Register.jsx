@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useLang } from '../LangContext';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFar0LGrrIOszJ2vXWCYOlJRnRIdCPrTto4MjvtoaMdDqwakBE1U1DUtkCzbdtlRhkXw/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaGt2YhJ5anyEZZUaf00ZTc68F13Dw0zvnPmz-KcQFdj8OTXqxUi-_hph_uH_ShHScUQ/exec';
 
 export default function Register() {
   const { tx } = useLang();
