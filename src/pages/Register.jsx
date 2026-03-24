@@ -47,13 +47,14 @@ export default function Register() {
         file: file ? await toBase64(file) : '',
       };
 
-      const res = await fetch(APPS_SCRIPT_URL, {
+      await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload),
+        mode: 'no-cors', // Apps Script không hỗ trợ CORS đầy đủ
       });
-      const data = await res.json();
-      setStatus(data.status === 'success' ? 'success' : 'error');
+      // no-cors không đọc được response → coi là thành công nếu không throw
+      setStatus('success');
     } catch {
       setStatus('error');
     }
