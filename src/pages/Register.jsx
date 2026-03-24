@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useLang } from '../LangContext';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeT-u3cLU41UrzDDP9OYVgXqq8YIFwiKcp_pK-ZF2-naA4sPu1iW2dfcVWG7bK-ywDoA/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyG4YsVBBBEc7lmo4jjMAORfXcDepece37u9D7MiX2Bde5_RlFX_MRtJw5hIYgjbvK/exec';
 
 function normalizePhone(v) {
   return v.replace(/\D/g, '').replace(/^0+/, '');
