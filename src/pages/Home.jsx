@@ -34,15 +34,14 @@ export default function Home({ navigate }) {
           <span/><span/><span/><span/><span/><span/>
         </div>
         <div className="hero-content">
-          <div className="badge hero-anim-1"><span className="badge-dot"/>{h.badge}</div>
-          <h1 className="hero-title hero-anim-2">
+          <h1 className="hero-title hero-anim-1">
             <span className="hero-title-top">{h.titleTop}</span>
             <span className="hero-title-bottom">{h.titleBottom}</span>
           </h1>
-          <p className="hero-sub hero-anim-3">{h.sub.split('\n').map((line, i) => (
+          <p className="hero-sub hero-anim-2">{h.sub.split('\n').map((line, i) => (
             <span key={i}>{line}{i === 0 && <br/>}</span>
           ))}</p>
-          <div className="hero-btns hero-anim-4">
+          <div className="hero-btns hero-anim-3">
             <a className="btn-primary" href="#" onClick={e => { e.preventDefault(); navigate('register'); }}>{h.btnPrimary}</a>
             <a href="#prizes" className="btn-secondary">{h.btnSecondary}</a>
           </div>
