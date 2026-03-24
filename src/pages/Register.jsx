@@ -3,15 +3,20 @@ import { useLang } from '../LangContext';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeT-u3cLU41UrzDDP9OYVgXqq8YIFwiKcp_pK-ZF2-naA4sPu1iW2dfcVWG7bK-ywDoA/exec';
 
+function normalizePhone(v) {
+  return v.replace(/\D/g, '').replace(/^0+/, '');
+}
+
 async function checkDuplicate(field, value) {
   if (!value.trim()) return false;
   try {
-    const url = `${APPS_SCRIPT_URL}?check=1&field=${field}&value=${encodeURIComponent(value.trim())}`;
+    const normalized = field === 'phone' ? normalizePhone(value) : value.trim();
+    const url = `${APPS_SCRIPT_URL}?check=1&field=${field}&value=${encodeURIComponent(normalized)}`;
     const res = await fetch(url);
     const data = await res.json();
     return data.duplicate === true;
   } catch {
-    return false; // nếu lỗi mạng thì cho qua
+    return false;
   }
 }
 
