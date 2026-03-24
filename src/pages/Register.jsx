@@ -4,7 +4,7 @@ import { useLang } from '../LangContext';
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfymzrr4gtM11C3Wb1xwxkkPBx_JB2TvjgPQLz1fzjbjGQBrJrSfsMeKjw1ydRfMhFGg/exec';
 
 export default function Register() {
-  const { tx } = useLang();
+  const { tx, lang } = useLang();
   const r = tx.register;
   const [members, setMembers] = useState(['', '']);
   const [form, setForm] = useState({ teamName: '', school: '', email: '', phone: '', idea: '', category: '' });
@@ -66,7 +66,7 @@ export default function Register() {
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
           <h1 style={{ marginBottom: '1rem' }}>{r.successMsg}</h1>
           <p style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-body)' }}>
-            {tx.lang === 'VI'
+            {lang === 'vi'
               ? 'Chúng tôi sẽ liên hệ với bạn qua email sớm nhất.'
               : 'We will contact you via email as soon as possible.'}
           </p>
@@ -132,7 +132,7 @@ export default function Register() {
               style={{ fontSize: '.85rem', color: 'var(--text)' }} />
             <div className="file-note">{r.fileNote}</div>
             <div style={{ fontSize: '.75rem', color: 'var(--text-dim)', marginTop: '.4rem' }}>
-              {tx.lang === 'VI'
+              {lang === 'vi'
                 ? '💡 Đặt tên file theo tên đội thi (ví dụ: TenDoi_MoTaDuAn.pdf)'
                 : '💡 Name the file after your team name (e.g. TeamName_ProjectDescription.pdf)'}
             </div>
@@ -148,7 +148,7 @@ export default function Register() {
 
           {status === 'error' && (
             <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>
-              {tx.lang === 'VI' ? 'Có lỗi xảy ra. Vui lòng thử lại.' : 'Something went wrong. Please try again.'}
+              {lang === 'vi' ? 'Có lỗi xảy ra. Vui lòng thử lại.' : 'Something went wrong. Please try again.'}
             </p>
           )}
 
