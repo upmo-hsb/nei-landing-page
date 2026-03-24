@@ -64,6 +64,11 @@
   outline: none;
 }
 
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* superai.com purple focus glow */
 .field input:focus,
 .field textarea:focus,
@@ -108,6 +113,10 @@
   background: var(--color-white);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.memberRow input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .memberRow input:focus {

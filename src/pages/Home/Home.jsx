@@ -62,13 +62,30 @@ function Home() {
       </section>
 
       <section className={styles.sponsors}>
-        <p className={styles.sponsorsLabel}>Sponsored By</p>
-        <div className={styles.sponsorsLogos}>
-          <div className={styles.sponsorLogo}>
-            <img src="/logo-hsbm.png" alt="Hanoi School of Business & Management" />
+        <div className={styles.sponsorsGrid}>
+          <div className={styles.sponsorItem}>
+            <p className={styles.sponsorCategory}>Đơn Vị Tổ Chức</p>
+            <div className={styles.sponsorLogo}>
+              <img src="/logo-acquin.png" alt="Đơn vị tổ chức" />
+            </div>
           </div>
-          <div className={styles.sponsorLogo}>
-            <img src="/logo-acquin.png" alt="Hanoi Department of Education" />
+          <div className={styles.sponsorItem}>
+            <p className={styles.sponsorCategory}>Đơn Vị Đồng Hành</p>
+            <div className={styles.sponsorLogo}>
+              <img src="/logo-hsbm.png" alt="Đơn vị đồng hành" />
+            </div>
+          </div>
+          <div className={styles.sponsorItem}>
+            <p className={styles.sponsorCategory}>Đơn Vị Bảo Trợ Chuyên Môn</p>
+            <div className={styles.sponsorLogo}>
+              <img src="/Logo UET.jpg" alt="Đơn vị bảo trợ chuyên môn" />
+            </div>
+          </div>
+          <div className={styles.sponsorItem}>
+            <p className={styles.sponsorCategory}>Đơn Vị Bảo Trợ Truyền Thông</p>
+            <div className={styles.sponsorLogo}>
+              <img src="/Logo_Đài_Phát_thanh_&_Truyền_hình_Hà_Nội_-_HTV.svg.png" alt="Đơn vị bảo trợ truyền thông" />
+            </div>
           </div>
         </div>
       </section>
