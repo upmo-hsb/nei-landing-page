@@ -1,7 +1,19 @@
 import { useState, useRef } from 'react';
 import { useLang } from '../LangContext';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfymzrr4gtM11C3Wb1xwxkkPBx_JB2TvjgPQLz1fzjbjGQBrJrSfsMeKjw1ydRfMhFGg/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeT-u3cLU41UrzDDP9OYVgXqq8YIFwiKcp_pK-ZF2-naA4sPu1iW2dfcVWG7bK-ywDoA/exec';
+
+async function checkDuplicate(field, value) {
+  if (!value.trim()) return false;
+  try {
+    const url = `${APPS_SCRIPT_URL}?check=1&field=${field}&value=${encodeURIComponent(value.trim())}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.duplicate === true;
+  } catch {
+    return false; // nếu lỗi mạng thì cho qua
+  }
+}
 
 export default function Register() {
   const { tx, lang } = useLang();
@@ -10,12 +22,34 @@ export default function Register() {
   const [form, setForm] = useState({ teamName: '', school: '', email: '', phone: '', idea: '', category: '' });
   const [file, setFile] = useState(null);
   const [status, setStatus] = useState(null);
+  const [dupErrors, setDupErrors] = useState({});
   const fileRef = useRef();
 
   const addMember = () => setMembers(m => [...m, '']);
   const removeMember = (i) => { if (members.length > 1) setMembers(m => m.filter((_, idx) => idx !== i)); };
   const updateMember = (i, v) => setMembers(m => m.map((x, idx) => idx === i ? v : x));
-  const updateField = (k, v) => setForm(f => ({ ...f, [k]: v }));
+  const updateField = (k, v) => {
+    setForm(f => ({ ...f, [k]: v }));
+    if (dupErrors[k]) setDupErrors(d => ({ ...d, [k]: false }));
+  };
+
+  const handleBlur = async (field) => {
+    const value = form[field];
+    if (!value.trim()) return;
+    const isDup = await checkDuplicate(field, value);
+    setDupErrors(d => ({ ...d, [field]: isDup }));
+  };
+
+  const dupMsg = (field) => {
+    if (!dupErrors[field]) return null;
+    const msgs = {
+      vi: { teamName: 'Tên đội này đã được đăng ký.', email: 'Email này đã được sử dụng để đăng ký.', phone: 'Số điện thoại này đã được sử dụng để đăng ký.' },
+      en: { teamName: 'This team name is already registered.', email: 'This email is already registered.', phone: 'This phone number is already registered.' },
+    };
+    return (msgs[lang] || msgs.vi)[field];
+  };
+
+  const hasDup = Object.values(dupErrors).some(Boolean);
 
   const onFileChange = (e) => {
     const f = e.target.files[0];
@@ -37,6 +71,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (hasDup) return;
     setStatus('loading');
     try {
       const payload = {
@@ -46,7 +81,6 @@ export default function Register() {
         fileType: file ? file.type : '',
         file: file ? await toBase64(file) : '',
       };
-
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain' },
@@ -66,14 +100,14 @@ export default function Register() {
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
           <h1 style={{ marginBottom: '1rem' }}>{r.successMsg}</h1>
           <p style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-body)' }}>
-            {lang === 'vi'
-              ? 'Chúng tôi sẽ liên hệ với bạn qua email sớm nhất.'
-              : 'We will contact you via email as soon as possible.'}
+            {lang === 'vi' ? 'Chúng tôi sẽ liên hệ với bạn qua email sớm nhất.' : 'We will contact you via email as soon as possible.'}
           </p>
         </div>
       </div>
     );
   }
+
+  const errStyle = { color: '#ff6b6b', fontSize: '.78rem', marginTop: '.3rem', fontFamily: 'var(--font-body)' };
 
   return (
     <div className="register-page">
@@ -85,22 +119,37 @@ export default function Register() {
           <div className="reg-group">
             <label>{r.teamName}</label>
             <input required type="text" placeholder={r.teamNamePh}
-              value={form.teamName} onChange={e => updateField('teamName', e.target.value)} />
+              value={form.teamName}
+              onChange={e => updateField('teamName', e.target.value)}
+              onBlur={() => handleBlur('teamName')}
+              style={dupErrors.teamName ? { borderColor: '#ff6b6b' } : {}} />
+            {dupMsg('teamName') && <p style={errStyle}>⚠️ {dupMsg('teamName')}</p>}
           </div>
+
           <div className="reg-group">
             <label>{r.school}</label>
             <input required type="text" placeholder={r.schoolPh}
               value={form.school} onChange={e => updateField('school', e.target.value)} />
           </div>
+
           <div className="reg-group">
             <label>{r.email}</label>
             <input required type="email" placeholder="email@example.com"
-              value={form.email} onChange={e => updateField('email', e.target.value)} />
+              value={form.email}
+              onChange={e => updateField('email', e.target.value)}
+              onBlur={() => handleBlur('email')}
+              style={dupErrors.email ? { borderColor: '#ff6b6b' } : {}} />
+            {dupMsg('email') && <p style={errStyle}>⚠️ {dupMsg('email')}</p>}
           </div>
+
           <div className="reg-group">
             <label>{r.phone}</label>
             <input required type="tel" placeholder={r.phonePh}
-              value={form.phone} onChange={e => updateField('phone', e.target.value)} />
+              value={form.phone}
+              onChange={e => updateField('phone', e.target.value)}
+              onBlur={() => handleBlur('phone')}
+              style={dupErrors.phone ? { borderColor: '#ff6b6b' } : {}} />
+            {dupMsg('phone') && <p style={errStyle}>⚠️ {dupMsg('phone')}</p>}
           </div>
 
           <div className="team-members-box">
@@ -152,7 +201,7 @@ export default function Register() {
             </p>
           )}
 
-          <button type="submit" className="btn-submit-reg" disabled={status === 'loading'}>
+          <button type="submit" className="btn-submit-reg" disabled={status === 'loading' || hasDup}>
             {status === 'loading' ? '...' : r.submit}
           </button>
         </form>
