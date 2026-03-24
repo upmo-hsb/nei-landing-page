@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
+import FireworkAd from './components/FireworkAd';
 import './App.css';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       {page === 'register' && <Register />}
       {page === 'contact'  && <Contact />}
       <Footer navigate={navigate} />
+      <FireworkAd />
     </LangProvider>
   );
 }
