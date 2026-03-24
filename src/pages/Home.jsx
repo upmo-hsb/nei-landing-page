@@ -1,52 +1,109 @@
+import { useEffect } from 'react';
 import { useLang } from '../LangContext';
 
+function useScrollReveal() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
 export default function Home({ navigate }) {
-  const { tx } = useLang();
+  const { tx, lang } = useLang();
   const h = tx.hero;
   const s = tx.schedule;
   const p = tx.prizes;
   const sp = tx.speakers;
   const v = tx.venue;
 
+  useScrollReveal();
+
   return (
     <>
       {/* HERO */}
       <section className="hero">
+        <div className="hero-particles" aria-hidden="true">
+          <span/><span/><span/><span/><span/><span/>
+        </div>
         <div className="hero-content">
-          <div className="badge"><span className="badge-dot"></span>{h.badge}</div>
-          <h1 className="hero-title">
+          <div className="badge hero-anim-1"><span className="badge-dot"/>{h.badge}</div>
+          <h1 className="hero-title hero-anim-2">
             <span className="hero-title-top">{h.titleTop}</span>
             <span className="hero-title-bottom">{h.titleBottom}</span>
           </h1>
-          <p className="hero-sub">{h.sub.split('\n').map((line, i) => (
+          <p className="hero-sub hero-anim-3">{h.sub.split('\n').map((line, i) => (
             <span key={i}>{line}{i === 0 && <br/>}</span>
           ))}</p>
-          <div className="hero-btns">
+          <div className="hero-btns hero-anim-4">
             <a className="btn-primary" href="#" onClick={e => { e.preventDefault(); navigate('register'); }}>{h.btnPrimary}</a>
-            <a href="#schedule" className="btn-secondary">{h.btnSecondary}</a>
+            <a href="#prizes" className="btn-secondary">{h.btnSecondary}</a>
           </div>
         </div>
+        <a href="#stats" className="hero-scroll-hint" aria-label="scroll">
+          <span className="hero-scroll-line"/>
+          <span className="hero-scroll-arrow"/>
+        </a>
       </section>
 
       {/* STATS */}
-      <div className="stats">
-        {tx.stats.map((s, i) => (
-          <div className="stat" key={i}>
-            <div className="stat-num">{s.num}</div>
-            <div className="stat-label">{s.label}</div>
+      <div id="stats" className="stats">
+        {tx.stats.map((st, i) => (
+          <div className="stat reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
+            <div className="stat-num">{st.num}</div>
+            <div className="stat-label">{st.label}</div>
           </div>
         ))}
       </div>
 
+      {/* PRIZES — moved up for impact */}
+      <section id="prizes" className="section-alt">
+        <div className="section-inner">
+          <div className="section-tag reveal">{p.tag}</div>
+          <h2 className="section-title reveal">{p.titleA}<br/><em>{p.titleB}</em></h2>
+          <div className="prizes-grid" style={{ marginTop: '2.5rem' }}>
+            {p.cards.map((card, i) => (
+              <div
+                className={`prize-card reveal${i === 0 ? ' prize-featured' : ''}`}
+                key={i}
+                style={{ borderColor: card.borderColor || 'rgba(255,255,255,.06)', transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="prize-icon">{card.icon}</div>
+                <div className="prize-rank">{card.rank}</div>
+                <div className="prize-amount">{card.amount}</div>
+                <div className="prize-extra">
+                  {card.extra.split('\n').map((line, j) => (
+                    <span key={j}>
+                      {j === 0 ? line : <><br/><span style={{color:'var(--blue)'}}>{line}</span></>}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="prize-note reveal" style={{ transitionDelay: '0.4s' }}>
+            <p>{p.note1}</p>
+            <p style={{ marginTop:'.6rem', color:'rgba(255,255,255,.45)', fontSize:'.8rem' }}>{p.note2}</p>
+          </div>
+        </div>
+      </section>
+
       {/* SCHEDULE */}
       <section id="schedule">
         <div className="section-inner">
-          <div className="section-tag">{s.tag}</div>
-          <h2 className="section-title">{s.titleA}<br/><em>{s.titleB}</em></h2>
-          <p className="section-desc">{s.desc}</p>
+          <div className="section-tag reveal">{s.tag}</div>
+          <h2 className="section-title reveal">{s.titleA}<br/><em>{s.titleB}</em></h2>
+          <p className="section-desc reveal">{s.desc}</p>
           <div className="schedule-phases">
             {s.phases.map((ph, i) => (
-              <div className="phase-block" key={i}>
+              <div className="phase-block reveal" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
                 <div className="phase-header">
                   <span className={`phase-badge ${ph.badgeClass}`}>{ph.badge}</span>
                   <div className="phase-title">{ph.title}</div>
@@ -66,43 +123,15 @@ export default function Home({ navigate }) {
         </div>
       </section>
 
-      {/* PRIZES */}
-      <section id="prizes" style={{ background:'rgba(0,200,255,.015)' }}>
-        <div className="section-inner">
-          <div className="section-tag">{p.tag}</div>
-          <h2 className="section-title">{p.titleA}<br/><em>{p.titleB}</em></h2>
-          <div className="prizes-grid">
-            {p.cards.map((card, i) => (
-              <div className="prize-card" key={i} style={{ borderColor: card.borderColor || 'rgba(255,255,255,.06)' }}>
-                <div className="prize-icon">{card.icon}</div>
-                <div className="prize-rank">{card.rank}</div>
-                <div className="prize-amount">{card.amount}</div>
-                <div className="prize-extra">
-                  {card.extra.split('\n').map((line, j) => (
-                    <span key={j} style={j===1 ? { color:'var(--blue)' } : {}}>
-                      {j===0 ? line : <><br/><span style={{color:'var(--blue)'}}>{line}</span></>}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="prize-note">
-            <p>{p.note1}</p>
-            <p style={{ marginTop:'.6rem', color:'rgba(255,255,255,.45)', fontSize:'.8rem' }}>{p.note2}</p>
-          </div>
-        </div>
-      </section>
-
       {/* SPEAKERS */}
-      <section id="speakers">
+      <section id="speakers" className="section-alt">
         <div className="section-inner">
-          <div className="section-tag">{sp.tag}</div>
-          <h2 className="section-title">{sp.titleA}<br/><em>{sp.titleB}</em></h2>
-          <p className="section-desc">{sp.desc}</p>
+          <div className="section-tag reveal">{sp.tag}</div>
+          <h2 className="section-title reveal">{sp.titleA}<br/><em>{sp.titleB}</em></h2>
+          <p className="section-desc reveal">{sp.desc}</p>
           <div className="speakers-grid">
             {sp.cards.map((card, i) => (
-              <div className="speaker-card" key={i}>
+              <div className="speaker-card reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="speaker-avatar">{card.icon}</div>
                 <div className="speaker-name">{card.name}</div>
                 <div className="speaker-role">{card.role.split('\n').map((line, j) => (
@@ -117,9 +146,9 @@ export default function Home({ navigate }) {
       {/* VENUE */}
       <section id="venue">
         <div className="section-inner">
-          <div className="section-tag">{v.tag}</div>
-          <h2 className="section-title">{v.titleA}<br/><em>{v.titleB}</em></h2>
-          <div className="venue-box" style={{ marginTop:'3rem' }}>
+          <div className="section-tag reveal">{v.tag}</div>
+          <h2 className="section-title reveal">{v.titleA}<br/><em>{v.titleB}</em></h2>
+          <div className="venue-box reveal" style={{ marginTop:'3rem' }}>
             <div className="venue-map">
               <span>🏛️</span>
               <p>{v.mapLabel.split('\n').map((line,i)=><span key={i}>{i>0&&<br/>}{line}</span>)}</p>
@@ -146,6 +175,26 @@ export default function Home({ navigate }) {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta-section">
+        <div className="cta-glow" aria-hidden="true"/>
+        <div className="section-inner">
+          <div className="reveal">
+            <h2 className="cta-title">
+              {lang === 'vi' ? <>Sẵn sàng<br/><em>tham chiến?</em></> : <>Ready to<br/><em>compete?</em></>}
+            </h2>
+            <p className="cta-sub">
+              {lang === 'vi'
+                ? 'Hạn đăng ký đang đến gần. Đừng để cơ hội này trôi qua.'
+                : "Registration deadline is approaching. Don't miss your chance."}
+            </p>
+            <a className="btn-primary btn-cta" href="#" onClick={e => { e.preventDefault(); navigate('register'); }}>
+              {h.btnPrimary}
+            </a>
           </div>
         </div>
       </section>
