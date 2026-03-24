@@ -117,8 +117,11 @@ export default function Register() {
 
           <div className="reg-group">
             <label>{r.idea}</label>
-            <textarea required placeholder={r.ideaPh} value={form.idea}
+            <textarea required placeholder={r.ideaPh} value={form.idea} maxLength={200}
               onChange={e => updateField('idea', e.target.value)} />
+            <div style={{ fontSize: '.75rem', color: form.idea.length >= 200 ? '#ff6b6b' : 'var(--text-dim)', textAlign: 'right', marginTop: '.3rem' }}>
+              {form.idea.length}/200
+            </div>
           </div>
 
           <div className="reg-group">
@@ -128,6 +131,11 @@ export default function Register() {
             <input ref={fileRef} type="file" accept=".pdf,.doc,.docx" onChange={onFileChange}
               style={{ fontSize: '.85rem', color: 'var(--text)' }} />
             <div className="file-note">{r.fileNote}</div>
+            <div style={{ fontSize: '.75rem', color: 'var(--text-dim)', marginTop: '.4rem' }}>
+              {tx.lang === 'VI'
+                ? '💡 Đặt tên file theo tên đội thi (ví dụ: TenDoi_MoTaDuAn.pdf)'
+                : '💡 Name the file after your team name (e.g. TeamName_ProjectDescription.pdf)'}
+            </div>
           </div>
 
           <div className="reg-group">
