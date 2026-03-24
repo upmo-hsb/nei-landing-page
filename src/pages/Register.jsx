@@ -7,6 +7,15 @@ function normalizePhone(v) {
   return v.replace(/\D/g, '').replace(/^0+/, '');
 }
 
+function isValidEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+}
+
+function isValidPhone(v) {
+  // Số điện thoại Việt Nam: 10 chữ số, bắt đầu bằng 0[3|5|7|8|9]
+  return /^(0[35789][0-9]{8})$/.test(v.replace(/\s/g, ''));
+}
+
 async function checkDuplicate(field, value) {
   if (!value.trim()) return false;
   try {
@@ -28,6 +37,7 @@ export default function Register() {
   const [file, setFile] = useState(null);
   const [status, setStatus] = useState(null);
   const [dupErrors, setDupErrors] = useState({});
+  const [formatErrors, setFormatErrors] = useState({});
   const fileRef = useRef();
 
   const addMember = () => setMembers(m => [...m, '']);
@@ -36,11 +46,24 @@ export default function Register() {
   const updateField = (k, v) => {
     setForm(f => ({ ...f, [k]: v }));
     if (dupErrors[k]) setDupErrors(d => ({ ...d, [k]: false }));
+    if (formatErrors[k]) setFormatErrors(d => ({ ...d, [k]: false }));
   };
 
   const handleBlur = async (field) => {
     const value = form[field];
     if (!value.trim()) return;
+
+    // Kiểm tra format trước
+    if (field === 'email' && !isValidEmail(value)) {
+      setFormatErrors(d => ({ ...d, email: true }));
+      return;
+    }
+    if (field === 'phone' && !isValidPhone(value)) {
+      setFormatErrors(d => ({ ...d, phone: true }));
+      return;
+    }
+
+    // Kiểm tra trùng lặp
     const isDup = await checkDuplicate(field, value);
     setDupErrors(d => ({ ...d, [field]: isDup }));
   };
@@ -55,6 +78,7 @@ export default function Register() {
   };
 
   const hasDup = Object.values(dupErrors).some(Boolean);
+  const hasFormatErr = Object.values(formatErrors).some(Boolean);
 
   const onFileChange = (e) => {
     const f = e.target.files[0];
@@ -76,7 +100,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (hasDup) return;
+    if (hasDup || hasFormatErr) return;
     setStatus('loading');
     try {
       const payload = {
@@ -143,7 +167,8 @@ export default function Register() {
               value={form.email}
               onChange={e => updateField('email', e.target.value)}
               onBlur={() => handleBlur('email')}
-              style={dupErrors.email ? { borderColor: '#ff6b6b' } : {}} />
+              style={(dupErrors.email || formatErrors.email) ? { borderColor: '#ff6b6b' } : {}} />
+            {formatErrors.email && <p style={errStyle}>⚠️ {lang === 'vi' ? 'Vui lòng điền email hợp lệ.' : 'Please enter a valid email address.'}</p>}
             {dupMsg('email') && <p style={errStyle}>⚠️ {dupMsg('email')}</p>}
           </div>
 
@@ -153,7 +178,8 @@ export default function Register() {
               value={form.phone}
               onChange={e => updateField('phone', e.target.value)}
               onBlur={() => handleBlur('phone')}
-              style={dupErrors.phone ? { borderColor: '#ff6b6b' } : {}} />
+              style={(dupErrors.phone || formatErrors.phone) ? { borderColor: '#ff6b6b' } : {}} />
+            {formatErrors.phone && <p style={errStyle}>⚠️ {lang === 'vi' ? 'Vui lòng điền số điện thoại hợp lệ (10 số, bắt đầu bằng 0).' : 'Please enter a valid Vietnamese phone number (10 digits, starting with 0).'}</p>}
             {dupMsg('phone') && <p style={errStyle}>⚠️ {dupMsg('phone')}</p>}
           </div>
 
@@ -206,7 +232,7 @@ export default function Register() {
             </p>
           )}
 
-          <button type="submit" className="btn-submit-reg" disabled={status === 'loading' || hasDup}>
+          <button type="submit" className="btn-submit-reg" disabled={status === 'loading' || hasDup || hasFormatErr}>
             {status === 'loading' ? '...' : r.submit}
           </button>
         </form>
