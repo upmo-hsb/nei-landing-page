@@ -255,14 +255,14 @@ nav {
 }
 .hero-title-top {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -1px;
 }
 .hero-title-bottom {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
   font-weight: 700;
   font-style: italic;
   color: var(--lime);
@@ -272,7 +272,7 @@ nav {
 .hero-sub {
   font-family: var(--font-body);
   font-size: 1.05rem;
-  color: var(--text-dim);
+  color: rgba(255,255,255,.75);
   line-height: 1.7;
   margin-bottom: 2.2rem;
   max-width: 600px;
