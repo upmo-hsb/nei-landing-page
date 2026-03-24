@@ -27,10 +27,10 @@ export default function FireworkAd() {
       setFw({ side, phase: 'rocket', particles });
       setTimeout(() => setFw(f => f && { ...f, phase: 'burst' }), 1300);
       setTimeout(() => setFw(f => f && { ...f, phase: 'sign'  }), 1600);
-      setTimeout(() => setFw(null), 7200); // 1600 + 5600
+      setTimeout(() => setFw(null), 11800); // 1600 + 10200
     };
 
-    const id = setInterval(launch, 30000);
+    const id = setInterval(launch, 10000);
     return () => clearInterval(id);
   }, []);
 

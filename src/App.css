@@ -2,14 +2,14 @@
 
 /* ── DESIGN TOKENS ── */
 :root {
-  --bg: #05060f;
+  --bg: #0b0f1e;
   --blue: #00c8ff;
   --lime: #b5c900;
   --white: #fff;
-  --text: rgba(255,255,255,.82);
-  --text-dim: rgba(255,255,255,.45);
-  --card-bg: rgba(255,255,255,.04);
-  --card-border: rgba(255,255,255,.08);
+  --text: rgba(255,255,255,.93);
+  --text-dim: rgba(255,255,255,.62);
+  --card-bg: rgba(255,255,255,.07);
+  --card-border: rgba(255,255,255,.14);
   --font: 'DM Sans', sans-serif;
   --font-heading: 'Source Serif 4', Georgia, serif;
   --font-body: 'Times New Roman', Times, serif;
@@ -62,7 +62,7 @@ nav {
   gap: 1.8rem;
   padding: 0 .5rem 0 1.6rem;
   height: 52px;
-  background: rgba(8,10,22,.88);
+  background: rgba(14,18,34,.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 999px;
@@ -206,7 +206,7 @@ nav {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.3);
   pointer-events: none;
 }
 
@@ -317,9 +317,9 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0;
-  border-top: 1px solid rgba(255,255,255,.07);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.04);
   padding: 1.8rem 2rem;
 }
 
@@ -810,9 +810,9 @@ section {
 
 /* ── SECTION ALTERNATING BACKGROUND ── */
 .section-alt {
-  background: rgba(0,200,255,.018);
-  border-top: 1px solid rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(0,200,255,.03);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 /* ── PRIZE FEATURED (1st place) ── */
@@ -962,9 +962,9 @@ section {
 
 @keyframes fwSignShow {
   0%   { opacity: 0; transform: scale(0.65) translateY(10px); }
-  12%  { opacity: 1; transform: scale(1.04); }
-  18%  { transform: scale(1); }
-  80%  { opacity: 1; }
+  6%   { opacity: 1; transform: scale(1.04); }
+  10%  { transform: scale(1); }
+  88%  { opacity: 1; }
   100% { opacity: 0; transform: scale(0.95); }
 }
 @keyframes fwLedGlow {
@@ -976,7 +976,7 @@ section {
   position: fixed;
   top: 180px;
   text-decoration: none;
-  animation: fwSignShow 5.6s ease forwards;
+  animation: fwSignShow 10.2s ease forwards;
   z-index: 9999;
 }
 .fw-sign-left  { left: 12px; }
