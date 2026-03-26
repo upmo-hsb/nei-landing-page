@@ -317,9 +317,9 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0;
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
   padding: 1.8rem 2rem;
 }
 
@@ -407,7 +407,7 @@ section {
   gap: 1rem;
   padding: 1.1rem 1.5rem;
   border-bottom: 1px solid var(--card-border);
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.07);
   flex-wrap: wrap;
 }
 
@@ -633,7 +633,7 @@ section {
 .reg-group textarea { min-height: 110px; resize: vertical; }
 
 .team-members-box {
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.07);
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.3rem 1.3rem 1rem;
@@ -811,9 +811,9 @@ section {
 
 /* ── SECTION ALTERNATING BACKGROUND ── */
 .section-alt {
-  background: rgba(0,200,255,.03);
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: rgba(0,200,255,.06);
+  border-top: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(255,255,255,.18);
 }
 
 /* ── PRIZE FEATURED (1st place) ── */

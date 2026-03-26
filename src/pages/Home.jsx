@@ -43,7 +43,7 @@ export default function Home({ navigate }) {
           ))}</p>
           <div className="hero-btns hero-anim-3">
             <a className="btn-primary" href="#" onClick={e => { e.preventDefault(); navigate('register'); }}>{h.btnPrimary}</a>
-            <a href="#prizes" className="btn-secondary">{h.btnSecondary}</a>
+            <a href="#schedule" className="btn-secondary">{h.btnSecondary}</a>
           </div>
         </div>
         <a href="#stats" className="hero-scroll-hint" aria-label="scroll">
