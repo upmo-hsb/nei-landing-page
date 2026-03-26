@@ -2,14 +2,14 @@
 
 /* ── DESIGN TOKENS ── */
 :root {
-  --bg: #0b0f1e;
+  --bg: #0d1224;
   --blue: #00c8ff;
   --lime: #b5c900;
   --white: #fff;
-  --text: rgba(255,255,255,.93);
-  --text-dim: rgba(255,255,255,.62);
-  --card-bg: rgba(255,255,255,.07);
-  --card-border: rgba(255,255,255,.14);
+  --text: rgba(255,255,255,.97);
+  --text-dim: rgba(255,255,255,.75);
+  --card-bg: rgba(255,255,255,.10);
+  --card-border: rgba(255,255,255,.20);
   --font: 'DM Sans', sans-serif;
   --font-heading: 'Source Serif 4', Georgia, serif;
   --font-body: 'Times New Roman', Times, serif;
@@ -88,7 +88,7 @@ nav {
   list-style: none;
 }
 .nav-links a {
-  font-size: .75rem;
+  font-size: .82rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   color: var(--text-dim);
@@ -206,7 +206,7 @@ nav {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.12);
   pointer-events: none;
 }
 
@@ -271,8 +271,8 @@ nav {
 
 .hero-sub {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: rgba(255,255,255,.75);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,.92);
   line-height: 1.7;
   margin-bottom: 2.2rem;
   max-width: 600px;
@@ -337,7 +337,7 @@ nav {
   letter-spacing: -1px;
 }
 .stat-label {
-  font-size: .75rem;
+  font-size: .85rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -356,7 +356,7 @@ section {
 }
 
 .section-tag {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -379,7 +379,7 @@ section {
 
 .section-desc {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-dim);
   line-height: 1.75;
   max-width: 680px;
@@ -412,7 +412,7 @@ section {
 }
 
 .phase-badge {
-  font-size: .7rem;
+  font-size: .78rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -425,11 +425,11 @@ section {
 
 .phase-title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--white);
 }
 .phase-date {
-  font-size: .8rem;
+  font-size: .88rem;
   color: var(--text-dim);
   margin-left: auto;
 }
@@ -437,7 +437,7 @@ section {
 .phase-body { padding: 1.2rem 1.5rem; }
 .phase-row {
   font-family: var(--font-body);
-  font-size: .88rem;
+  font-size: .98rem;
   color: var(--text);
   line-height: 1.65;
   padding: .45rem 0;
@@ -465,7 +465,7 @@ section {
 
 .prize-icon { font-size: 2.2rem; margin-bottom: .6rem; }
 .prize-rank {
-  font-size: .75rem;
+  font-size: .82rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -473,14 +473,14 @@ section {
   margin-bottom: .5rem;
 }
 .prize-amount {
-  font-size: 1.6rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: .6rem;
 }
 .prize-extra {
   font-family: var(--font-body);
-  font-size: .78rem;
+  font-size: .9rem;
   color: var(--text-dim);
   line-height: 1.55;
 }
@@ -489,10 +489,10 @@ section {
   font-family: var(--font-body);
   margin-top: 2rem;
   padding: 1.2rem 1.5rem;
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.06);
   border: 1px solid var(--card-border);
   border-radius: 10px;
-  font-size: .85rem;
+  font-size: .97rem;
   color: var(--text);
   line-height: 1.65;
 }
@@ -535,7 +535,7 @@ section {
 }
 .speaker-role {
   font-family: var(--font-body);
-  font-size: .8rem;
+  font-size: .9rem;
   color: var(--text-dim);
   line-height: 1.55;
 }
@@ -568,8 +568,8 @@ section {
 .venue-row { display: flex; gap: 1rem; align-items: flex-start; }
 .venue-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
 .venue-info { display: flex; flex-direction: column; gap: .2rem; }
-.venue-info strong { font-size: .9rem; color: var(--white); font-weight: 600; }
-.venue-info span   { font-family: var(--font-body); font-size: .82rem; color: var(--text-dim); }
+.venue-info strong { font-size: 1rem; color: var(--white); font-weight: 600; }
+.venue-info span   { font-family: var(--font-body); font-size: .93rem; color: var(--text-dim); }
 
 /* ── REGISTER PAGE ── */
 .register-page {
@@ -592,7 +592,7 @@ section {
 }
 
 .reg-sub {
-  font-size: .92rem;
+  font-size: 1rem;
   color: var(--text-dim);
   margin-bottom: 2rem;
 }
@@ -604,7 +604,7 @@ section {
   margin-bottom: 1.3rem;
 }
 .reg-group label {
-  font-size: .8rem;
+  font-size: .88rem;
   font-weight: 600;
   letter-spacing: .5px;
   color: var(--text-dim);
@@ -613,8 +613,8 @@ section {
 .reg-group input,
 .reg-group textarea,
 .reg-group select {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: 8px;
   color: var(--white);
   font-family: var(--font);
@@ -625,7 +625,7 @@ section {
   width: 100%;
 }
 .reg-group input::placeholder,
-.reg-group textarea::placeholder { color: rgba(255,255,255,.3); }
+.reg-group textarea::placeholder { color: rgba(255,255,255,.5); }
 .reg-group input:focus,
 .reg-group textarea:focus,
 .reg-group select:focus { border-color: var(--blue); }
@@ -664,6 +664,7 @@ section {
   outline: none;
 }
 .member-row input::placeholder { color: rgba(255, 255, 255, 0.55); }
+
 .member-row input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(120, 70, 221, 0.1);
