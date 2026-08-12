@@ -71,7 +71,7 @@ function Register() {
     <main className={styles.page}>
       <div className={styles.container}>
         <h1 className={styles.title}>Register Your Team</h1>
-        <p className={styles.subtitle}>Fill out the form below to enter NEI 2026</p>
+        <p className={styles.subtitle}>Fill out the form below to enter NIE 2026</p>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label className={styles.field}>
             <span>Team Name *</span>

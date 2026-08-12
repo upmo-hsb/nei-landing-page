@@ -6,7 +6,7 @@ export default function Navbar({ page, navigate }) {
   return (
     <nav>
       <a className="logo" href="#" onClick={e => { e.preventDefault(); navigate('home'); }}>
-        <span className="logo-nei">NEI</span>
+        <span className="logo-nei">NIE</span>
         <span className="logo-year">2026</span>
       </a>
       <ul className="nav-links">

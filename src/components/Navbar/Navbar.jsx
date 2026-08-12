@@ -8,7 +8,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
-          <span className={styles.logoAccent}>NEI</span> 2026
+          <span className={styles.logoAccent}>NIE</span> 2026
         </Link>
         <ul className={styles.links}>
           <li>

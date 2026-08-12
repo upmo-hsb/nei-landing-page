@@ -11,7 +11,7 @@ export default function Footer({ navigate }) {
       <div style={{ maxWidth:'1100px', margin:'0 auto', padding:'3rem 2rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'4rem', alignItems:'center' }}>
         <div>
           <div style={{ display:'flex', alignItems:'baseline', gap:'.3rem', marginBottom:'1.5rem' }}>
-            <span style={{ fontFamily:"'DM Sans',sans-serif", fontWeight:700, fontSize:'1.8rem', letterSpacing:'2px', color:'#b5c900' }}>NEI</span>
+            <span style={{ fontFamily:"'DM Sans',sans-serif", fontWeight:700, fontSize:'1.8rem', letterSpacing:'2px', color:'#b5c900' }}>NIE</span>
             <span style={{ fontFamily:"'DM Sans',sans-serif", fontWeight:300, fontSize:'1.8rem', color:'#111' }}>2026</span>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:'.7rem' }}>

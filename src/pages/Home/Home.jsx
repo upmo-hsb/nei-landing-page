@@ -9,9 +9,9 @@ function Home() {
         <div className={styles.heroContent}>
           <p className={styles.tag}>April - May 2026 | Hanoi, Vietnam</p>
           <h1 className={styles.headline}>
-            Northern Entrepreneurship
+            Northern Innovation
             <br />
-            <span className={styles.headlineAccent}>Innovation Contest</span>
+            <span className={styles.headlineAccent}>Entrepreneurship Contest</span>
           </h1>
           <p className={styles.sub}>
             The premier startup competition for high school students in Northern Vietnam.
