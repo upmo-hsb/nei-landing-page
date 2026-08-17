@@ -36,9 +36,8 @@ export default function Footer({ navigate }) {
               <div style={{ fontSize:'.65rem', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase', color:'#888', marginBottom:'.8rem' }}>{label}</div>
               <img
                 src={[
-                  '/logo-acquin.png',
+                  '/logo-qs.png',
                   '/logo-hsbm.png',
-                  '/Logo UET.jpg',
                   '/logo-htv.png'
                 ][i]}
                 alt={label}
