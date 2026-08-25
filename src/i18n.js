@@ -36,7 +36,6 @@ export const t = {
             'Nhận hồ sơ trực tuyến: 22/08 – 25/10/2026. Thí sinh nộp bài trình bày ý tưởng dưới dạng văn bản (tối đa 3 trang), định dạng PDF hoặc file PowerPoint không quá 15 trang.',
             'Bài dự thi cần làm rõ: Phân tích bối cảnh dự án — tổng quan ý tưởng, thông điệp cốt lõi, điểm khác biệt, sáng tạo nổi bật và mục tiêu dự án.',
             'Bài dự thi trình bày phương án triển khai, dự toán tài chính và các tiêu chí đánh giá, đo lường hiệu quả cụ thể, khả thi.',
-            'Chấm nội bộ Vòng Sơ khảo: 26/10 – 15/11/2026.',
           ],
           highlight: '→ Công bố 30 đội vào Vòng Bán kết: 18/11/2026.',
         },
@@ -47,7 +46,6 @@ export const t = {
           rows: [
             'Hình thức: Trực tuyến.',
             'Từ 19/11 – 27/12/2026, 30 đội hoàn thiện chi tiết ý tưởng, xây dựng video giới thiệu dự án (tối đa 3 phút) và trình bày trực tuyến trước Hội đồng Giám khảo.',
-            'Chấm nội bộ Vòng Bán kết: 28/12/2026 – 17/01/2027.',
           ],
           highlight: '→ Công bố 10 đội vào Vòng Chung kết: 21/01/2027.',
         },
@@ -58,7 +56,6 @@ export const t = {
           rows: [
             'Hình thức: Trực tuyến và Trực tiếp.',
             'Từ 22/01 – 22/02/2027, 10 đội hoàn thiện dự án và luyện kỹ năng thuyết trình; lịch làm việc có khoảng hai tuần trùng kỳ nghỉ Tết Âm lịch.',
-            'Chuẩn bị và tổng duyệt: 23/02 – 26/02/2027.',
             'Chung kết trực tiếp ngày 27/02/2027 tại Trường Quản trị và Kinh doanh – ĐHQGHN, Nhà B1, số 144 Xuân Thủy, phường Cầu Giấy, TP. Hà Nội.',
           ],
           highlight: '→ Công bố và trao giải nhà vô địch NIE 2026.',
@@ -189,7 +186,6 @@ export const t = {
             'Online submission: Aug 22 – Oct 25, 2026. Teams submit a written idea presentation (max 3 pages) in PDF format, or a PowerPoint file of no more than 15 slides.',
             'Submissions must clarify: Project context analysis — overview, core message, differentiators, notable innovations, and project goals.',
             'Submissions must include an implementation plan, financial estimate, and specific, feasible evaluation criteria and performance metrics.',
-            'Internal judging for the Preliminary Round: Oct 26 – Nov 15, 2026.',
           ],
           highlight: '→ Top 30 teams announced for the Semi-Final: Nov 18, 2026.',
         },
@@ -200,7 +196,6 @@ export const t = {
           rows: [
             'Format: Online.',
             'From Nov 19 to Dec 27, 2026, the Top 30 teams refine their projects, produce a project introduction video (max 3 minutes), and present online to the Judging Panel.',
-            'Internal judging for the Semi-Final: Dec 28, 2026 – Jan 17, 2027.',
           ],
           highlight: '→ Top 10 teams announced for the Final: Jan 21, 2027.',
         },
@@ -211,7 +206,6 @@ export const t = {
           rows: [
             'Format: Online & In-person.',
             'From Jan 22 to Feb 22, 2027, the Top 10 teams refine their projects and presentation skills; the schedule includes approximately two weeks overlapping the Lunar New Year holiday.',
-            'Preparation and rehearsal: Feb 23 – Feb 26, 2027.',
             'The in-person Final takes place on Feb 27, 2027 at the Hanoi School of Business and Management (HSB) - VNU, Building B1, 144 Xuan Thuy, Cau Giay, Hanoi.',
           ],
           highlight: '→ Announcement and award ceremony for NIE 2026 champion.',
