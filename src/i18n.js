@@ -138,7 +138,8 @@ export const t = {
     footer: {
       hotline: 'Hotline: 0868 22 66 56',
       website: 'Website: hsb.edu.vn',
-      facebook: 'Facebook: Trường Quản Trị và Kinh Doanh HSB',
+      schoolFanpage: 'Fanpage Nhà trường: Trường Quản trị và Kinh doanh HSB',
+      contestFanpage: 'Fanpage Cuộc thi: Northern Innovation Entrepreneurship - NIE',
       copy: '© 2026 Northern Innovation Entrepreneurship Contest\nTrường Quản trị và Kinh doanh – ĐHQGHN',
       boxes: ['Đơn vị tổ chức','Đơn vị đồng hành','Đơn vị bảo trợ truyền thông'],
     },
@@ -283,7 +284,8 @@ export const t = {
     footer: {
       hotline: 'Hotline: 0868 22 66 56',
       website: 'Website: hsb.edu.vn',
-      facebook: 'Facebook: Hanoi School of Business and Management HSB',
+      schoolFanpage: 'School Fanpage: Hanoi School of Business and Management HSB',
+      contestFanpage: 'Contest Fanpage: Northern Innovation Entrepreneurship - NIE',
       copy: '© 2026 Northern Innovation Entrepreneurship Contest\nHanoi School of Business and Management (HSB) - VNU',
       boxes: ['Organizing Unit','Supporting Unit','Media Sponsor'],
     },

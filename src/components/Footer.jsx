@@ -2,7 +2,7 @@ import { useLang } from '../LangContext';
 
 const HSB_LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA..."; // placeholder
 
-export default function Footer({ navigate }) {
+export default function Footer() {
   const { tx } = useLang();
   const f = tx.footer;
 
@@ -24,8 +24,11 @@ export default function Footer({ navigate }) {
               <a href="https://hsb.edu.vn" target="_blank" rel="noopener" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
                 🌐 <span>{f.website}</span>
               </a>
-              <a href="https://www.facebook.com/TruongQuanTrivaKinhDoanhHSB" target="_blank" rel="noopener" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
-                📘 <span>{f.facebook}</span>
+              <a href="https://www.facebook.com/TruongQuanTrivaKinhDoanhHSB" target="_blank" rel="noopener noreferrer" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
+                📘 <span>{f.schoolFanpage}</span>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61592814106251" target="_blank" rel="noopener noreferrer" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
+                📘 <span>{f.contestFanpage}</span>
               </a>
             </div>
             <p style={{ marginTop:'1.8rem', fontSize:'.75rem', color:'#888', lineHeight:1.6 }}>
