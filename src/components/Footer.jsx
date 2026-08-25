@@ -1,6 +1,13 @@
 import { useLang } from '../LangContext';
 
-const HSB_LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAA..."; // placeholder
+const SPONSOR_LOGOS = [
+  [{ src: '/logo-qs.png', alt: 'Trường Quản trị và Kinh doanh HSB' }],
+  [
+    { src: '/logo-hsbm.png', alt: 'Sở Giáo dục và Đào tạo Hà Nội' },
+    { src: '/logo-so-gddt-hung-yen.png', alt: 'Sở Giáo dục và Đào tạo Hưng Yên' },
+  ],
+  [{ src: '/logo-htv.png', alt: 'Đơn vị bảo trợ truyền thông' }],
+];
 
 export default function Footer() {
   const { tx } = useLang();
@@ -38,15 +45,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom row: 3 sponsor boxes equally spaced */}
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'1.2rem' }}>
+        <div className="footer-sponsor-grid">
           {f.boxes.map((label, i) => (
             <div key={i} style={{ background:'#f8f9fa', border:'1px solid #e5e7eb', borderRadius:'10px', padding:'1.5rem', textAlign:'center', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', minHeight:'160px' }}>
               <div style={{ fontSize:'.65rem', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase', color:'#888', marginBottom:'1rem' }}>{label}</div>
-              <img
-                src={['/logo-qs.png', '/logo-hsbm.png', '/logo-htv.png'][i]}
-                alt={label}
-                style={{ height: i === 0 ? '110px' : '80px', width:'auto', maxWidth:'100%', objectFit:'contain' }}
-              />
+              <div className={`footer-sponsor-logos${i === 1 ? ' footer-sponsor-logos-pair' : ''}`}>
+                {SPONSOR_LOGOS[i].map(logo => (
+                  <img
+                    key={logo.src}
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{ height: i === 0 ? '110px' : '80px', width:'auto', maxWidth:'100%', objectFit:'contain' }}
+                  />
+                ))}
+              </div>
             </div>
           ))}
         </div>
