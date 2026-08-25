@@ -335,6 +335,10 @@ nav {
   font-weight: 700;
   color: var(--white);
   letter-spacing: -1px;
+  white-space: nowrap;
+}
+.stat:nth-child(4) .stat-num {
+  font-size: clamp(1.15rem, 1.65vw, 1.65rem);
 }
 .stat-label {
   font-size: .85rem;
