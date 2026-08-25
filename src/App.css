@@ -386,6 +386,13 @@ section {
   margin-bottom: 2rem;
 }
 
+@media (min-width: 900px) {
+  .section-desc-nowrap {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
 /* ── SCHEDULE ── */
 .schedule-phases {
   display: flex;
@@ -500,10 +507,23 @@ section {
 /* ── SPEAKERS ── */
 .speakers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.4rem;
   margin-top: 2.5rem;
 }
+
+.speaker-reference-link {
+  color: var(--blue);
+  font-family: var(--font);
+  font-size: .82em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+.speaker-reference-link:hover { color: var(--white); }
 
 .speaker-card {
   background: var(--card-bg);

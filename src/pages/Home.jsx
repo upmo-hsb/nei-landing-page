@@ -99,7 +99,7 @@ export default function Home({ navigate }) {
         <div className="section-inner">
           <div className="section-tag reveal">{s.tag}</div>
           <h2 className="section-title reveal">{s.titleA}<br/><em>{s.titleB}</em></h2>
-          <p className="section-desc reveal">{s.desc}</p>
+          <p className="section-desc section-desc-nowrap reveal">{s.desc}</p>
           <div className="schedule-phases">
             {s.phases.map((ph, i) => (
               <div className="phase-block reveal" key={i} style={{ transitionDelay: `${i * 0.15}s` }}>
@@ -127,7 +127,17 @@ export default function Home({ navigate }) {
         <div className="section-inner">
           <div className="section-tag reveal">{sp.tag}</div>
           <h2 className="section-title reveal">{sp.titleA}<br/><em>{sp.titleB}</em></h2>
-          <p className="section-desc reveal">{sp.desc}</p>
+          <p className="section-desc section-desc-nowrap reveal">
+            {sp.desc}{' '}
+            <a
+              className="speaker-reference-link"
+              href={sp.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {sp.linkLabel}
+            </a>
+          </p>
           <div className="speakers-grid">
             {sp.cards.map((card, i) => (
               <div className="speaker-card reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>

@@ -83,9 +83,10 @@ export const t = {
       titleA: 'Những người',
       titleB: 'truyền cảm hứng',
       desc: 'Gặp gỡ các giảng viên, chuyên gia và đại diện doanh nghiệp hàng đầu đồng hành cùng NIE 2026.',
+      linkLabel: 'TẠI ĐÂY',
+      linkUrl: 'https://www.hsb.edu.vn/about/faculty',
       cards: [
         { icon:'🎓', name:'Giảng viên & Chuyên gia', role:'Trường Quản trị và Kinh doanh\nĐHQGHN (HSB)' },
-        { icon:'💻', name:'Giảng viên & Chuyên gia', role:'Trường Đại học Công nghệ\nĐHQGHN (UET)' },
         { icon:'🏢', name:'Đại diện Chuyên môn',    role:'Từ các Doanh nghiệp hàng đầu\nViệt Nam' },
       ],
     },
@@ -129,6 +130,7 @@ export const t = {
     contact: {
       title: 'Liên Hệ',
       emailLabel: 'Email',
+      email: 'hsb.khoinghiepmienbac@hsb.edu.vn',
       phoneLabel: 'Điện thoại',
       addressLabel: 'Địa chỉ',
       address: 'Trường Quản trị và Kinh doanh,\nĐại học Quốc gia Hà Nội',
@@ -226,9 +228,10 @@ export const t = {
       titleA: 'Inspiring',
       titleB: 'People',
       desc: 'Meet the lecturers, experts, and business representatives joining NIE 2026.',
+      linkLabel: 'VIEW HERE',
+      linkUrl: 'https://www.hsb.edu.vn/about/faculty',
       cards: [
         { icon:'🎓', name:'Lecturers & Experts', role:'Hanoi School of Business and Management\n(HSB) - VNU' },
-        { icon:'💻', name:'Lecturers & Experts', role:'University of Engineering & Technology\nVNU (UET)' },
         { icon:'🏢', name:'Industry Representatives', role:'From Leading Companies\nin Vietnam' },
       ],
     },
@@ -272,6 +275,7 @@ export const t = {
     contact: {
       title: 'Contact Us',
       emailLabel: 'Email',
+      email: 'hsb.khoinghiepmienbac@hsb.edu.vn',
       phoneLabel: 'Phone',
       addressLabel: 'Address',
       address: 'Hanoi School of Business and Management (HSB),\nVietnam National University, Hanoi',

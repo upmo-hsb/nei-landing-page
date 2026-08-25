@@ -14,7 +14,7 @@ export default function Contact() {
               <div className="contact-card">
                 <div className="contact-card-label">{c.emailLabel}</div>
                 <div className="contact-card-value">
-                  <a href="mailto:NIE2026@hsb.edu.vn">NIE2026@hsb.edu.vn</a>
+                  <a href={`mailto:${c.email}`}>{c.email}</a>
                 </div>
               </div>
               <div className="contact-card">
