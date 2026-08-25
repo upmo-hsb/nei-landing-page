@@ -24,10 +24,10 @@ export default function Footer() {
               <a href="https://hsb.edu.vn" target="_blank" rel="noopener" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
                 🌐 <span>{f.website}</span>
               </a>
-              <a href="https://www.facebook.com/TruongQuanTrivaKinhDoanhHSB" target="_blank" rel="noopener noreferrer" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
+              <a href="https://www.facebook.com/TruongQuanTrivaKinhDoanhHSB" target="_blank" rel="noopener noreferrer" style={{ color:'#0067c9', textDecoration:'underline', textUnderlineOffset:'3px', fontWeight:600, fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
                 📘 <span>{f.schoolFanpage}</span>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61592814106251" target="_blank" rel="noopener noreferrer" style={{ color:'#111', textDecoration:'none', fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
+              <a href="https://www.facebook.com/profile.php?id=61592814106251" target="_blank" rel="noopener noreferrer" style={{ color:'#0067c9', textDecoration:'underline', textUnderlineOffset:'3px', fontWeight:600, fontSize:'.92rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
                 📘 <span>{f.contestFanpage}</span>
               </a>
             </div>
