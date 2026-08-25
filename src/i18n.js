@@ -10,7 +10,7 @@ export const t = {
     hero: {
       badge: 'Hà Nội · 22/08/2026 – 27/02/2027',
       titleTop: 'Northern Innovation',
-      titleBottom: 'Entrepreneurship Contest',
+      titleBottom: 'Entrepreneurship 2026',
       sub: 'Cuộc thi khởi nghiệp hàng đầu dành cho học sinh THPT miền Bắc.\nPitch your ideas. Build your future.',
       btnPrimary: 'Đăng ký tham dự →',
       btnSecondary: 'Xem lịch trình',
@@ -160,7 +160,7 @@ export const t = {
     hero: {
       badge: 'Hanoi · Aug 22, 2026 – Feb 27, 2027',
       titleTop: 'Northern Innovation',
-      titleBottom: 'Entrepreneurship Contest',
+      titleBottom: 'Entrepreneurship 2026',
       sub: 'The premier entrepreneurship competition for high school students in Northern Vietnam.\nPitch your ideas. Build your future.',
       btnPrimary: 'Register Now →',
       btnSecondary: 'View Schedule',
