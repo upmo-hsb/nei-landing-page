@@ -721,10 +721,38 @@ section {
 }
 .btn-add-member:hover { background: rgba(0,200,255,.07); }
 
-.file-note {
-  font-size: .75rem;
+.registration-note {
+  background: rgba(0,200,255,.07);
+  border: 1px solid rgba(0,200,255,.28);
+  border-radius: 10px;
   color: var(--text-dim);
-  margin-top: .4rem;
+  font-family: var(--font-body);
+  margin: .25rem 0 1.3rem;
+  padding: 1.1rem 1.2rem;
+}
+.registration-note h2 {
+  color: var(--white);
+  font-family: var(--font);
+  font-size: .92rem;
+  margin-bottom: .7rem;
+}
+.registration-note ul {
+  line-height: 1.55;
+  margin: 0 0 .75rem 1.2rem;
+}
+.registration-note li + li { margin-top: .35rem; }
+.registration-note-contact {
+  display: grid;
+  gap: .3rem;
+  line-height: 1.5;
+  padding-left: 1.2rem;
+}
+.registration-note a {
+  color: var(--blue);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .btn-submit-reg {

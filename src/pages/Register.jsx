@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useLang } from '../LangContext';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyG4YsVBBBEc7lmo4jjMAORfXcDepece37u9D7MiX2Bde5_RlFX_MRtJw5hIYgjbvK/exec';
@@ -34,14 +34,12 @@ export default function Register() {
   const r = tx.register;
   const [members, setMembers] = useState(['', '']);
   const [form, setForm] = useState({ teamName: '', school: '', email: '', phone: '', idea: '', category: '' });
-  const [file, setFile] = useState(null);
   const [status, setStatus] = useState(null);
   const [dupErrors, setDupErrors] = useState({});
   const [formatErrors, setFormatErrors] = useState({});
-  const fileRef = useRef();
 
   const addMember = () => { if (members.length < 5) setMembers(m => [...m, '']); };
-  const removeMember = (i) => { if (members.length > 1) setMembers(m => m.filter((_, idx) => idx !== i)); };
+  const removeMember = (i) => { if (i > 0 && members.length > 1) setMembers(m => m.filter((_, idx) => idx !== i)); };
   const updateMember = (i, v) => setMembers(m => m.map((x, idx) => idx === i ? v : x));
   const updateField = (k, v) => {
     setForm(f => ({ ...f, [k]: v }));
@@ -80,24 +78,6 @@ export default function Register() {
   const hasDup = Object.values(dupErrors).some(Boolean);
   const hasFormatErr = Object.values(formatErrors).some(Boolean);
 
-  const onFileChange = (e) => {
-    const f = e.target.files[0];
-    if (!f) return;
-    if (f.size > 25 * 1024 * 1024) {
-      alert('File quá 25MB. Vui lòng chọn file nhỏ hơn.');
-      e.target.value = '';
-      return;
-    }
-    setFile(f);
-  };
-
-  const toBase64 = (f) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = reject;
-    reader.readAsDataURL(f);
-  });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (hasDup || hasFormatErr) return;
@@ -106,9 +86,6 @@ export default function Register() {
       const payload = {
         ...form,
         members: members.filter(m => m.trim()).join(', '),
-        fileName: file ? file.name : '',
-        fileType: file ? file.type : '',
-        file: file ? await toBase64(file) : '',
       };
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
@@ -187,9 +164,11 @@ export default function Register() {
             <div className="team-members-label">{r.membersLabel}</div>
             {members.map((val, i) => (
               <div className="member-row" key={i}>
-                <input type="text" placeholder={r.memberPh(i + 1)} value={val}
+                <input required={i === 0} type="text" placeholder={r.memberPh(i + 1)} value={val}
                   onChange={e => updateMember(i, e.target.value)} />
-                <button type="button" className="btn-remove" onClick={() => removeMember(i)}>{r.remove}</button>
+                {i > 0 && (
+                  <button type="button" className="btn-remove" onClick={() => removeMember(i)}>{r.remove}</button>
+                )}
               </div>
             ))}
             {members.length < 5 && (
@@ -210,26 +189,25 @@ export default function Register() {
           </div>
 
           <div className="reg-group">
-            <label style={{ fontSize: '.82rem', color: 'var(--text-dim)', display: 'block', marginBottom: '.4rem' }}>
-              {r.fileLabel}
-            </label>
-            <input ref={fileRef} type="file" accept=".pdf,.doc,.docx" onChange={onFileChange}
-              style={{ fontSize: '.85rem', color: 'var(--text)' }} />
-            <div className="file-note">{r.fileNote}</div>
-            <div style={{ fontSize: '.75rem', color: 'var(--text-dim)', marginTop: '.4rem' }}>
-              {lang === 'vi'
-                ? '💡 Đặt tên file theo tên đội thi (ví dụ: TenDoi_MoTaDuAn.pdf)'
-                : '💡 Name the file after your team name (e.g. TeamName_ProjectDescription.pdf)'}
-            </div>
-          </div>
-
-          <div className="reg-group">
             <label>{r.category}</label>
             <select required value={form.category} onChange={e => updateField('category', e.target.value)}>
               <option value="">{r.categoryPh}</option>
               {r.categories.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
+
+          <aside className="registration-note" aria-labelledby="registration-note-title">
+            <h2 id="registration-note-title">{r.noteTitle}</h2>
+            <ul>
+              <li>{r.noteConfirmation}</li>
+              <li>{r.noteContactIntro}</li>
+            </ul>
+            <div className="registration-note-contact">
+              <div><strong>Hotline:</strong> <a href="tel:0868226656">0868 22 66 56</a></div>
+              <div><strong>Email:</strong> <a href="mailto:hsb.khoinghiepmienbac@hsb.edu.vn">hsb.khoinghiepmienbac@hsb.edu.vn</a></div>
+              <div><strong>{r.noteFanpageLabel}:</strong> <a href="https://www.facebook.com/profile.php?id=61592814106251" target="_blank" rel="noopener noreferrer">{r.noteFanpageLink}</a></div>
+            </div>
+          </aside>
 
           {status === 'error' && (
             <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>
