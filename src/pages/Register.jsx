@@ -40,7 +40,7 @@ export default function Register() {
   const [formatErrors, setFormatErrors] = useState({});
   const fileRef = useRef();
 
-  const addMember = () => setMembers(m => [...m, '']);
+  const addMember = () => { if (members.length < 5) setMembers(m => [...m, '']); };
   const removeMember = (i) => { if (members.length > 1) setMembers(m => m.filter((_, idx) => idx !== i)); };
   const updateMember = (i, v) => setMembers(m => m.map((x, idx) => idx === i ? v : x));
   const updateField = (k, v) => {
@@ -192,7 +192,12 @@ export default function Register() {
                 <button type="button" className="btn-remove" onClick={() => removeMember(i)}>{r.remove}</button>
               </div>
             ))}
-            <button type="button" className="btn-add-member" onClick={addMember}>{r.addMember}</button>
+            {members.length < 5 && (
+              <button type="button" className="btn-add-member" onClick={addMember}>{r.addMember}</button>
+            )}
+            <p style={{ marginTop: '.6rem', fontSize: '.8rem', color: '#ff6b6b', fontFamily: 'var(--font-body)' }}>
+              * {lang === 'vi' ? 'Mỗi đội thi có không quá 5 thành viên' : 'Each team may have no more than 5 members'}
+            </p>
           </div>
 
           <div className="reg-group">
